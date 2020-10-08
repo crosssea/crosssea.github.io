@@ -1,19 +1,19 @@
-/*ȫ�ֻ�����ʽ*/
-/*С��Ļ��(�ֻ���)����ʽ*/
+/*全局基础样式*/
+/*小屏幕下(手机类)的样式*/
 @media only screen and (max-width: 601px) {
     .container {
         width: 95%;
     }
 }
 
-/*�е���Ļ��(ƽ����)����ʽ*/
+/*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .container {
         width: 90%;
     }
 }
 
-/*����Ļ��(������)����ʽ*/
+/*大屏幕下(桌面类)的样式*/
 @media only screen and (min-width: 993px) {
     .container {
         width: 85%;
@@ -453,7 +453,7 @@ header .go-back i {
     line-height: 56px;
 }
 
-/* ����ͼЧ��. */
+/* 背景图效果. */
 .bg-cover {
     position: relative;
     display: flex;
@@ -664,7 +664,7 @@ header .go-back i {
     }
 }
 
-/*�е���Ļ��(ƽ����)����ʽ*/
+/*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .index-card .card .card-content {
         padding: 20px 20px;
@@ -780,7 +780,7 @@ header .go-back i {
     margin-top: -10px;
 }
 
-/*�����б���Ƭ����ʽ*/
+/*文章列表卡片各样式*/
 #articles {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -918,12 +918,12 @@ article .article-tags .chip {
     color: #999 !important;
 }
 
-/*����������ʽ*/
+/*文章详情样式*/
 #artDetail {
     margin-top: -60px;
 }
 
-/* �޸�С��Ļ����������table��ʽ. */
+/* 修改小屏幕下文章详情table样式. */
 @media only screen and (max-width: 550px) {
     #articleContent table{
         table-layout: fixed;
@@ -1724,7 +1724,7 @@ table tr:nth-child(2n), thead {
     cursor: pointer;
 }
 
-/*β����ʽ*/
+/*尾部样式*/
 footer {
     padding-bottom: 1px;
 }
@@ -1742,7 +1742,7 @@ footer .copy-right {
     color: #dbdbdb;
 }
 
-/*��������ʽ*/
+/*搜索层样式*/
 #searchIcon {
     font-size: 1.2rem;
 }
@@ -1787,7 +1787,7 @@ footer .copy-right {
     white-space: pre-wrap;
 }
 
-/*�ص�������ť��ʽ*/
+/*回到顶部按钮样式*/
 .top-scroll {
     display: none;
     position: fixed;
