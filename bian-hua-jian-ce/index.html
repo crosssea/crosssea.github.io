@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="contact, Crossea">
+    <meta name="keywords" content="变化检测, Crossea">
     <meta name="description" content="中国海洋大学 | 计算机科学与技术 | 视觉实验室">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>contact | Crossea的博客</title>
+    <title>变化检测 | Crossea的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">contact</h1>
+                    <h1 class="description center-align post-title">变化检测</h1>
                 </div>
             </div>
         </div>
@@ -431,12 +431,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%85%8B%E7%9B%90%E6%9D%82%E8%AE%B0/">
+                                <span class="chip bg-color">克盐杂记</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8F%98%E5%8C%96%E6%A3%80%E6%B5%8B/">
+                                <span class="chip bg-color">变化检测</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8F%98%E5%8C%96%E6%A3%80%E6%B5%8B/" class="post-category">
+                                变化检测
+                            </a>
+                        
+                            <a href="/categories/%E5%8F%98%E5%8C%96%E6%A3%80%E6%B5%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                论文阅读
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -445,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-19
+                    2020-10-20
                 </div>
                 
 
@@ -454,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    887
                 </div>
                 
 
@@ -466,7 +487,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p> 阅读了实验室的文章 Change Detection From Synthetic Aperture Radar Images Based on Channel Weighting-Based Deep Cascade Network </p>
+<p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8911214">链接</a></p>
+<blockquote>
+</blockquote>
+<h3 id="文章内容"><a href="#文章内容" class="headerlink" title="文章内容"></a>文章内容</h3><h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><blockquote>
+<p>本文主要的内容是SAR图像的分类</p>
+<p>文章指出随着网络深度的加深，卷积神经网络会遇到一些负面的影响， 例如引入一些冗余的信息和梯度爆炸问题</p>
+<p>所以作者提出了一个深度级联网络(DCNet),通过DCNet来提取具有区分度的特征，同时使用残差学习来解决梯度爆炸问题，对于不同层的输出的特征图首先进行加权，采用fusion机制来进行融合，最后，利用池化技术来获得逐通道的信息。</p>
+</blockquote>
+<h4 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h4><blockquote>
+<p>级联的卷积层</p>
+<p>每层输出的特征图加权之后利用fusion机制融合</p>
+<p>最后将所有特征图利用池化得到 channel-wise information</p>
+<p>生成最后的变化map</p>
+</blockquote>
+<p><img src="./material/001DCNet.png" alt="网络结构"></p>
+<h4 id="训练样本生成"><a href="#训练样本生成" class="headerlink" title="训练样本生成"></a>训练样本生成</h4><blockquote>
+<p>首先先使用聚类方法将像素分成三类</p>
+<p>变化的，不变的，不确定的</p>
+<p>然后将不变的和变化的进行采样生成训练数据</p>
+<p>训练之后对不确定的样本进行预测</p>
+</blockquote>
+<blockquote>
+<p>对两张不同时间的图片从一个特定像素位置采样一块r*r的区域</p>
+<p>拼接成一个2通道的训练图片</p>
+</blockquote>
+<p><img src="./material/001DCTnetSample_gen.png" alt="训练样本生成"></p>
+<h4 id="基于通道加权的残差Block"><a href="#基于通道加权的残差Block" class="headerlink" title="基于通道加权的残差Block"></a>基于通道加权的残差Block</h4><p><img src="./material/001DCnetWRB.png"><br>$$<br>残差学习\<br>F(x) := H(x)-x\<br>转而学习\<br>H(x) := F(x)+x<br>$$</p>
+<h5 id="通道加权的方法"><a href="#通道加权的方法" class="headerlink" title="通道加权的方法"></a>通道加权的方法</h5><blockquote>
+<p>对输入的特征图进行卷积得到c个通道的特征图</p>
+<p>分别进行最大值池化和平均池化得到$F_{avg}$和$F_{max}$</p>
+<p>然后分别通过一个全连接层之后进行降维</p>
+<p>再经给一个公共的全连接层生成开关向量</p>
+<p>将这个向量与卷积的特征图进行逐通道的乘，得到$F_{cw}$</p>
+</blockquote>
+<p>$$<br>F_{avg}\in R^{1*1**c}<br>$$</p>
+<p>$$<br>F_{max}\in R^{1<em>1</em>c} {1}<br>$$</p>
+<p>$$<br>W_{0}\in R^{ \frac {c}{t}*c}<br>$$</p>
+<p>$$<br>W_{1}\in R^{ \frac {c}{t}*c}<br>$$</p>
+<p>$$<br>W_{2}\in R^{c* \frac {c}{t}}<br>$$</p>
+<p>$$<br>M = σ(W2δ(W0Favg)+W2δ(W1Fmax))<br>$$</p>
+<h4 id="Fusion机制"><a href="#Fusion机制" class="headerlink" title="Fusion机制"></a>Fusion机制</h4><blockquote>
+<p>对于不同层的特征图输出先采用1*1的卷积使得都成为64通道的输出</p>
+<p>然后通过操作使得特征图大小一致后进行相加得到融合的特征</p>
+</blockquote>
+<p>$F = g1(F1)+g2(F2)) + g3(F3) $</p>
+<h4 id="结果生成"><a href="#结果生成" class="headerlink" title="结果生成"></a>结果生成</h4><p>将融合的特征经给一系列的全连接层之后</p>
+<p>最后成为一个二维的向量$(F_{c}, F_{u})$</p>
+<p>在经过Softmax层，最终得到预测的变化和不变的概率<br>$$<br>P_c = \frac {e^{F_c}}{e^{F_c} + e^{F_u}}<br>$$</p>
+<p>$$<br>P_u = \frac {e^{F_u}}{e^{F_c} + e^{F_u}}<br>$$<br>训练之后，对不确定的像素的进行预测，最终得到最后的变化结果图</p>
+<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p>​    <img src="./material/DCNetRes.png"></p>
+<p><img src="./material/DctnetRes2.png"></p>
+<blockquote>
+<p>可见相比于其他的方法基本都有较大的提升</p>
+</blockquote>
+<p>作者同时还分析了加权残差块对训练收敛速度的关系</p>
+<p>以及对于不同数据集输入样本的Size的取值</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>SAR图像的变化检测实际就是利用两张不同时间的图像进行地面要素的特征的变化与否进行检测</p>
+<p>主要的问题主要在于怎样生成训练样本以及怎样设计网络</p>
+<p>通道加权残差网络利用了残差学习来解决梯度爆炸问题使得网络可以更加的深</p>
+<p>同时使用通道加权，增强了有用的输出通道，从而达到了良好的效果</p>
+</blockquote>
+
             </div>
             <hr/>
 
@@ -491,7 +575,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://crosssea.github.io/contact/index.html">https://crosssea.github.io/contact/index.html</a>
+                    <a href="https://crosssea.github.io/bian-hua-jian-ce/">https://crosssea.github.io/bian-hua-jian-ce/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -528,7 +612,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E5%85%8B%E7%9B%90%E6%9D%82%E8%AE%B0/">
+                                    <span class="chip bg-color">克盐杂记</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8F%98%E5%8C%96%E6%A3%80%E6%B5%8B/">
+                                    <span class="chip bg-color">变化检测</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -573,13 +665,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/contact/index.html">
+                <a href="/bian-hua-jian-ce/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="contact">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="变化检测">
                         
-                        <span class="card-title">contact</span>
+                        <span class="card-title">变化检测</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -590,17 +682,37 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Crossea
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8F%98%E5%8C%96%E6%A3%80%E6%B5%8B/" class="post-category">
+                                    变化检测
+                                </a>
+                            
+                            <a href="/categories/%E5%8F%98%E5%8C%96%E6%A3%80%E6%B5%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                    论文阅读
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%8B%E7%9B%90%E6%9D%82%E8%AE%B0/">
+                        <span class="chip bg-color">克盐杂记</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%98%E5%8C%96%E6%A3%80%E6%B5%8B/">
+                        <span class="chip bg-color">变化检测</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -608,37 +720,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/contact/index.html">
+                <a href="/you-guan-yu-wo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="contact">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="index">
                         
-                        <span class="card-title">contact</span>
+                        <span class="card-title">index</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            关于我
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Crossea
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/" class="post-category">
+                                    自我介绍
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Demo/">
+                        <span class="chip bg-color">Demo</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -810,6 +933,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
